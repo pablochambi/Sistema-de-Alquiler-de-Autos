@@ -37,10 +37,90 @@ public class Agencia {
 
 
 
-	public Boolean registrarUnAuto(Auto auto1, Garaje garaje1,Integer CodUbicacion) {
+	public Boolean registrarUnAuto(Auto auto1, Garaje garaje1) {
 		
+		if(garaje1.agregarAuto(auto1)) {
+			
+			auto1.setGaraje(garaje1);
+			return this.autos.add(auto1);
+		}
+			
+		return false;
 		
-		return this.autos.add(auto1);
 	}
+
+
+
+	public String getRazonSocial() {
+		return razonSocial;
+	}
+
+
+
+	public void setRazonSocial(String razonSocial) {
+		this.razonSocial = razonSocial;
+	}
+
+
+
+	public Integer getCuit() {
+		return cuit;
+	}
+
+
+
+	public void setCuit(Integer cuit) {
+		this.cuit = cuit;
+	}
+
+
+
+	public ArrayList<Garaje> getGarajes() {
+		return garajes;
+	}
+
+
+
+	public void setGarajes(ArrayList<Garaje> garajes) {
+		this.garajes = garajes;
+	}
+
+
+
+	public ArrayList<Auto> getAutos() {
+		return autos;
+	}
+
+
+
+	public void setAutos(ArrayList<Auto> autos) {
+		this.autos = autos;
+	}
+
+
+
+	public ArrayList<Cliente> getClientes() {
+		return clientes;
+	}
+
+
+
+	public void setClientes(ArrayList<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+
+
+	public Integer cantidaDeAutosDisponibles() {
+		return this.autos.size();
+	}
+
+
+
+	public Integer cantDeGarajesDisponibles() {
+		return this.garajes.size();
+	}
+	
+	
 	
 }

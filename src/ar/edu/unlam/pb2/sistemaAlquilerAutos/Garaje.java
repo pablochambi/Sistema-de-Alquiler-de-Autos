@@ -18,6 +18,16 @@ public class Garaje {
 		autosEnElGaraje = new ArrayList<>();
 	}
 
+	public boolean agregarAuto(Auto auto) {
+		if (espaciosDisponibles > 0) {
+			this.autosEnElGaraje.add(auto);
+			espaciosDisponibles--;
+			return true;			//Si se agrego
+		} else {
+			return false;		//no se agrego
+		}
+	}
+	
 	public String getDireccion() {
 		return direccion;
 	}
@@ -35,16 +45,23 @@ public class Garaje {
 		this.idGaraje = idGaraje;
 	}
 
+	public Integer getEspaciosDisponibles() {
+		return espaciosDisponibles;
+	}
+
+	public void setEspaciosDisponibles(Integer espaciosDisponibles) {
+		this.espaciosDisponibles = espaciosDisponibles;
+	}
+
+	public ArrayList<Auto> getAutosEnElGaraje() {
+		return autosEnElGaraje;
+	}
+
+	public void setAutosEnElGaraje(ArrayList<Auto> autosEnElGaraje) {
+		this.autosEnElGaraje = autosEnElGaraje;
+	}
+
 	
-	public boolean agregarAuto(Auto auto) {
-        if (espaciosDisponibles > 0) {
-            this.autosEnElGaraje.add(auto);
-            espaciosDisponibles--;
-            return true;			//Si se agrego
-        } else {
-            return false;		//no se agrego
-        }
-    }
 
 	
 	
