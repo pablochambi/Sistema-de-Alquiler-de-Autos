@@ -1,19 +1,21 @@
 package ar.edu.unlam.pb2.sistemaAlquilerAutos;
 
+import java.util.ArrayList;
+
 public class Garaje {
 	
+	private Integer idGaraje;
 	private String direccion;
-	private String codUbicacion;
+	private Integer espaciosDisponibles;
+	private ArrayList<Auto> autosEnElGaraje;
 	
 	
-	public Garaje() {
-		this.direccion = "\0";
-		this.codUbicacion = "\0";
-	}
 
-	public Garaje(String direccion, String codUbicacion) {
+	public Garaje(Integer idGaraje,  String direccion, Integer espaciosDisponibles) {
+		this.idGaraje= idGaraje;
 		this.direccion = direccion;
-		this.codUbicacion = codUbicacion;
+		this.espaciosDisponibles = espaciosDisponibles;
+		autosEnElGaraje = new ArrayList<>();
 	}
 
 	public String getDireccion() {
@@ -23,14 +25,27 @@ public class Garaje {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-
-	public String getCodUbicacion() {
-		return codUbicacion;
+	
+	
+	public Integer getIdGaraje() {
+		return idGaraje;
 	}
 
-	public void setCodUbicacion(String codUbicacion) {
-		this.codUbicacion = codUbicacion;
+	public void setIdGaraje(Integer idGaraje) {
+		this.idGaraje = idGaraje;
 	}
+
+	
+	public boolean agregarAuto(Auto auto) {
+        if (espaciosDisponibles > 0) {
+            this.autosEnElGaraje.add(auto);
+            espaciosDisponibles--;
+            return true;			//Si se agrego
+        } else {
+            return false;		//no se agrego
+        }
+    }
+
 	
 	
 	

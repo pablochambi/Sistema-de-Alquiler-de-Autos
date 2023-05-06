@@ -34,5 +34,13 @@ public class Agencia {
 	public boolean registrarUnGaraje(Garaje garaje) {
 		return this.garajes.add(garaje);
 	}
+
+
+
+	public Boolean registrarUnAuto(Auto auto1, Garaje garaje1,Integer CodUbicacion) {
+		
+		
+		return this.autos.add(auto1);
+	}
 	
 }

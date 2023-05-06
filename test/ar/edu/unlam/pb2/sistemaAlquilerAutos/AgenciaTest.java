@@ -8,23 +8,42 @@ public class AgenciaTest {
 
 	@Test
 	public void queSePuedaRegistrarUnGarajeAUnaAgencia() {
+		//Preparacion de datos
+		String razonSocial="Rodriguez y cia S.R.L";
+		Integer cuit=250686778;
+		Agencia ag = new Agencia(razonSocial,cuit);
 		
-		Agencia ag = new Agencia("Rodriguez y cia S.R.L", 250686778);
+		Integer idGaraje=1;
+		String direccion="Av. Victoria 123";
+		Integer espaciosDisponibles=4;
+		Garaje garaje1 = new Garaje(idGaraje, direccion, espaciosDisponibles);
 		
-		Garaje g1 = new Garaje("Av. Victoria 123","A1");
-		
-		Boolean exitoso = ag.registrarUnGaraje(g1);
+		//Ejecuciones
+		Boolean exitoso = ag.registrarUnGaraje(garaje1);
+		//validaciones
+		assertTrue(exitoso);
 		
 	}
 	
 	@Test
 	public void queSePuedaRegistrarUnAutoEnUnaAgencia() {
 		
-		Agencia ag = new Agencia("Rodriguez y cia S.R.L", 250686778);
+		String razonSocial="Rodriguez y cia S.R.L";
+		Integer cuit=250686778;
+		Agencia ag = new Agencia(razonSocial,cuit);
 		
-		Garaje g1 = new Garaje("Av. Victoria 123","A1");
+		Integer idGaraje=1;
+		String direccion="Av. Victoria 123";
+		Integer espaciosDisponibles=4;
+		Garaje garaje1 = new Garaje(idGaraje, direccion, espaciosDisponibles);
 		
-		Boolean exitoso = ag.registrarUnGaraje(g1);
+		ag.registrarUnGaraje(garaje1);
+		
+		Auto auto1 = new Auto("USD", "Renauld kwid", "Climber",8000.0);
+		
+		Boolean exitoso = ag.registrarUnAuto(auto1,"Av. Victoria");
+		
+		assertTrue(exitoso);
 		
 	}	
 	
