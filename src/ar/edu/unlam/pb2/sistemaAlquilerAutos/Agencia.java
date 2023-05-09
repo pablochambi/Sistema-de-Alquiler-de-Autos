@@ -1,34 +1,37 @@
 package ar.edu.unlam.pb2.sistemaAlquilerAutos;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Agencia {
 
 	private String razonSocial;
 	private Integer cuit;
-	private ArrayList<Garaje> garajes = new ArrayList<>();
-	private ArrayList<Auto> autos = new ArrayList<>();
-	private ArrayList<Cliente> clientes = new ArrayList<>();
+	private HashSet<Garaje> garajes ;	//Garajes disponibles
+	private HashSet<Auto> autos ;		//Autos disponibles
+	private HashSet<Cliente> clientes ;
+	private HashSet<Reserva> reservas;
 	
 	
 	
 	public Agencia(String razonSocial, Integer cuit) {
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
-		garajes = new ArrayList<>();
-		autos = new ArrayList<>();
-		clientes = new ArrayList<>();
+		garajes = new HashSet<>();
+		autos = new HashSet<>();
+		clientes = new HashSet<>();
+		reservas = new HashSet<>();
 	}
 
 
 
-	public Agencia(String razonSocial,Integer cuit, ArrayList<Garaje> garajes, 
-													 ArrayList<Auto> autos) {
+	public Agencia(String razonSocial,Integer cuit, HashSet<Garaje> garajes, 
+													 HashSet<Auto> autos) {
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
 		this.garajes = garajes;
 		this.autos = autos;
-		clientes = new ArrayList<>();
+		clientes = new HashSet<>();
 	}
 	
 	public boolean registrarUnGaraje(Garaje garaje) {
@@ -44,9 +47,21 @@ public class Agencia {
 			auto1.setGaraje(garaje1);
 			return this.autos.add(auto1);
 		}
+		else {
+			return false;
+		}
 			
-		return false;
 		
+	}
+	
+	public Reserva alquilarAuto(Integer codReserva,Cliente cliente, Auto auto,Integer dias) {
+		
+		Reserva reserva = new Reserva(codReserva, cliente, auto, dias);
+        reservas.add(reserva);
+        auto.reservar();
+        autos.remove(auto);
+        auto.getGaraje().disminuirCantidadEspaciosDisponibles();//Hacer test de este
+        return reserva;
 	}
 
 
@@ -75,37 +90,37 @@ public class Agencia {
 
 
 
-	public ArrayList<Garaje> getGarajes() {
+	public HashSet<Garaje> getGarajes() {
 		return garajes;
 	}
 
 
 
-	public void setGarajes(ArrayList<Garaje> garajes) {
+	public void setGarajes(HashSet<Garaje> garajes) {
 		this.garajes = garajes;
 	}
 
 
 
-	public ArrayList<Auto> getAutos() {
-		return autos;
+	public HashSet<Auto> getAutos() {
+		return this.autos;
 	}
 
 
 
-	public void setAutos(ArrayList<Auto> autos) {
+	public void setAutos(HashSet<Auto> autos) {
 		this.autos = autos;
 	}
 
 
 
-	public ArrayList<Cliente> getClientes() {
+	public HashSet<Cliente> getClientes() {
 		return clientes;
 	}
 
 
 
-	public void setClientes(ArrayList<Cliente> clientes) {
+	public void setClientes(HashSet<Cliente> clientes) {
 		this.clientes = clientes;
 	}
 
@@ -120,6 +135,14 @@ public class Agencia {
 	public Integer cantDeGarajesDisponibles() {
 		return this.garajes.size();
 	}
+
+
+
+	public Boolean elAutoEstaDisponible(Auto auto1) {
+		return this.autos.contains(auto1);
+	}
+
+
 	
 	
 	

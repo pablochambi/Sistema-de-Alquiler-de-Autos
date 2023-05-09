@@ -21,6 +21,7 @@ public class Garaje {
 	public boolean agregarAuto(Auto auto) {
 		if (espaciosDisponibles > 0) {
 			this.autosEnElGaraje.add(auto);
+			auto.setGaraje(this); //Se agrega este auto en el garaje actual
 			espaciosDisponibles--;
 			return true;			//Si se agrego
 		} else {
@@ -59,6 +60,10 @@ public class Garaje {
 
 	public void setAutosEnElGaraje(ArrayList<Auto> autosEnElGaraje) {
 		this.autosEnElGaraje = autosEnElGaraje;
+	}
+
+	public void disminuirCantidadEspaciosDisponibles() {
+		this.espaciosDisponibles--;
 	}
 
 	
