@@ -26,7 +26,9 @@ public class AutosTest {
 	    // Verificar
 	    assertFalse(seAgrego);
 	    assertEquals(1, garaje.getAutosEnElGaraje().size());
+	    
 	}
+		
 	@Test
 	public void queSePuedaRegistrarAutosEnUnGaraje() {
 		String patente = "AD 115 PX";
@@ -43,7 +45,7 @@ public class AutosTest {
 		garaje.registrarAuto(auto);
 
 		ArrayList<Auto> autosEnElGaraje = garaje.getAutosEnElGaraje();
-		Assert.assertTrue(autosEnElGaraje.contains(auto));
+		assertTrue(autosEnElGaraje.contains(auto));
 	}	
 	
 	
