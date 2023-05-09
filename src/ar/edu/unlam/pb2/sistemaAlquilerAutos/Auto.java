@@ -64,6 +64,7 @@ public class Auto {
 	public void setGaraje(Garaje garaje) {
 		this.garaje = garaje;
 	}
+
 	
 	
 	
