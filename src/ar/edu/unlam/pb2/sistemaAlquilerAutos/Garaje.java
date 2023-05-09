@@ -9,7 +9,6 @@ public class Garaje {
 	private Integer espaciosDisponibles;
 	private ArrayList<Auto> autosEnElGaraje;
 	
-	
 
 	public Garaje(Integer idGaraje,  String direccion, Integer espaciosDisponibles) {
 		this.idGaraje= idGaraje;
@@ -62,8 +61,15 @@ public class Garaje {
 		this.autosEnElGaraje = autosEnElGaraje;
 	}
 
+
 	public void disminuirCantidadEspaciosDisponibles() {
 		this.espaciosDisponibles--;
+	}
+
+	public void registrarAuto(Auto auto) {
+		this.autosEnElGaraje.add(auto);
+		
+
 	}
 
 	

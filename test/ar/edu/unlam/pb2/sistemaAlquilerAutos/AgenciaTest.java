@@ -177,6 +177,7 @@ public class AgenciaTest {
 
 	@Test
 	public void queSeSepaElValorFinalDeUnAutoDe10MilPorDiaReservadoPor5Dias() {
+
 		// Preparacion de datos
 		String razonSocial = "Rodriguez y cia S.R.L";
 		Integer cuit = 250686778;
