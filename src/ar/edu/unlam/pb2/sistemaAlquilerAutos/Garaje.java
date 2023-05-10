@@ -72,6 +72,11 @@ public class Garaje {
 
 	}
 
+	public void eliminarAuto(Auto auto) {
+		// TODO Auto-generated method stub
+		this.autosEnElGaraje.remove(auto);
+	}
+
 
 	
 

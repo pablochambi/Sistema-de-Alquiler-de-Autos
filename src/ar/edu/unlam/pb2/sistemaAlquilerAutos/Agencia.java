@@ -60,11 +60,21 @@ public class Agencia {
         reservas.add(reserva);
         auto.reservar();
         autos.remove(auto);
-        auto.getGaraje().disminuirCantidadEspaciosDisponibles();//Hacer test de este
+        //auto.getGaraje().disminuirCantidadEspaciosDisponibles();//Hacer test de este
         return reserva;
 	}
 
-
+	public Reserva cancelarAuto() {
+		Reserva reserva;
+		return reserva = null;
+	}
+	public boolean cambiarDeGaraje(Auto auto) {
+		// TODO Auto-generated method stub
+		if(this.garajes.contains(auto)) {
+			garajes.remove(auto);
+		}
+		return this.autos.add(auto);
+	}
 
 	public String getRazonSocial() {
 		return razonSocial;

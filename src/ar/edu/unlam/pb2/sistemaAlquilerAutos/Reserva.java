@@ -52,6 +52,11 @@ public class Reserva {
 		return this.precioTotal;
 	}
 
+	public Double cambiarPrecio(Double descuento) {
+		// TODO Auto-generated method stub
+		return this.precioTotal*descuento;
+	}
+
 	
 	
 	
